@@ -9,3 +9,18 @@
 #
 # Пример словаря:
 # {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
+my_dict = {}
+with open('data/for_task_06.txt', 'r', encoding='utf-8-sig') as f:
+    for line in f:
+        # new_f = []
+        sum_of = 0
+        line = line.split()
+        new_f = [symbol for symbol in ' '.join(line) if 48 <= ord(symbol) <= 57 or symbol == ' '] # вместо закомментированных строк
+        # for line in ' '.join(line):
+        #     if 48 <= ord(line) <= 57 or line == ' ':
+        #         new_f.append(line)
+        new_f = ''.join(new_f).split()
+        for number in new_f:
+            sum_of += int(number)
+        my_dict[line[0][0:-1]] = sum_of
+print(my_dict)
